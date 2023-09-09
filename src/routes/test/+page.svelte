@@ -1,3 +1,4 @@
+<!-- svelte-ignore css-unused-selector -->
 <script>
 </script>
 
