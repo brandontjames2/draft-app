@@ -5,5 +5,10 @@
   <p>This is our new page.</p>
 </div>
 
-<style>
+<style lang="scss">
+  @use "../styles";
+
+  p {
+    color: styles.$blue;
+  }
 </style>
