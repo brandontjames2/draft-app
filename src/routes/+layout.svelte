@@ -1,10 +1,11 @@
 <script>
+  import "../app.postcss";
   import Header from "./Header.svelte";
   import "./styles.scss";
 </script>
 
 <div class="app">
-  <Header />
+  <Header></Header>
 
   <main>
     <slot />
@@ -42,10 +43,10 @@
     justify-content: center;
     align-items: center;
     padding: 12px;
-    a {
-      font-weight: bold;
-      color: styles.$blue;
-    }
+    // a {
+    //   font-weight: bold;
+    //   color: styles.$blue;
+    // }
   }
 
   @media (min-width: 480px) {
