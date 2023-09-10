@@ -20,7 +20,7 @@
 
     to your new<br />SvelteKit app
   </h1>
-  <Button>Click here to go nowhere</Button>
+  <Button color="primary">Click here to go nowhere</Button>
   <h2>
     try editing <strong>src/routes/+page.svelte</strong>
   </h2>
