@@ -1,6 +1,7 @@
 <script>
   import welcome from "$lib/images/svelte-welcome.webp";
   import welcome_fallback from "$lib/images/svelte-welcome.png";
+  import { Button } from 'sveltestrap';
 </script>
 
 <svelte:head>
@@ -19,7 +20,9 @@
 
     to your new<br />SvelteKit app
   </h1>
-
+<Button>
+  Click here to go nowhere
+</Button>
   <h2>
     try editing <strong>src/routes/+page.svelte</strong>
   </h2>
