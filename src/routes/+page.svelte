@@ -1,28 +1,46 @@
-<script>
-  import welcome from "$lib/images/svelte-welcome.webp";
-  import welcome_fallback from "$lib/images/svelte-welcome.png";
+<script lang="ts">
+  import { SlideToggle } from "@skeletonlabs/skeleton";
+  import { setModeCurrent, getModeAutoPrefers } from "@skeletonlabs/skeleton";
+  import { onMount } from "svelte";
+  import { autoModeWatcher } from "@skeletonlabs/skeleton";
+
+  let value: boolean = false;
+  let isLoading: boolean = true;
+
+  onMount(() => {
+    value = !getModeAutoPrefers();
+    console.log("user prefence is: " + value);
+    isLoading = false;
+  });
+
+  function toggle() {
+    console.log("changing value to: " + value);
+    setModeCurrent(!value);
+  }
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  {@html `<script>(${autoModeWatcher.toString()})();</script>`}
 </svelte:head>
 
-<section>
-  <h1>
-    <span class="welcome">
-      <picture>
-        <source srcset={welcome} type="image/webp" />
-        <img src={welcome_fallback} alt="Welcome" />
-      </picture>
-    </span>
+{#if !isLoading}
+  <div class="mb-8">
+    <h2>{value === false ? "Light" : "Dark"}</h2>
+    <SlideToggle
+      name="lightDarkToggle"
+      bind:checked={value}
+      on:change={toggle}
+    />
+  </div>
+{/if}
 
-    to your new<br />SvelteKit app
-  </h1>
-  <h2>
-    try editing <strong>src/routes/+page.svelte</strong>
-  </h2>
-</section>
+<button class="btn variant-filled-primary block mb-2">Primary</button>
+<button class="btn variant-filled-secondary block mb-2">Secondary</button>
+<button class="btn variant-filled-tertiary block mb-2">Tertiary</button>
+<button class="btn variant-filled-success block mb-2">Success</button>
+<button class="btn variant-filled-warning block mb-2">Warning</button>
+<button class="btn variant-filled-error block mb-2">Error</button>
+<button class="btn variant-filled-surface block mb-2">Surface</button>
 
 <style>
 </style>
