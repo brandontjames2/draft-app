@@ -18,7 +18,7 @@
     }
   </script>
 
-
+<div class="h-full border-r">
 {#if !isLoading}
   <div class="mb-8">
     <h2>{value === false ? "Light" : "Dark"}</h2>
@@ -37,3 +37,4 @@
 <button class="btn variant-filled-warning block mb-2">Warning</button>
 <button class="btn variant-filled-error block mb-2">Error</button>
 <button class="btn variant-filled-surface block mb-2">Surface</button>
+</div>
