@@ -9,19 +9,17 @@
 
   onMount(() => {
     value = !getModeAutoPrefers();
-    console.log("user prefence is: " + value);
     isLoading = false;
   });
 
   function toggle() {
-    console.log("changing value to: " + value);
     setModeCurrent(!value);
   }
 </script>
 
-<svelte:head>
-  {@html `<script>(${autoModeWatcher.toString()})();</script>`}
-</svelte:head>
+<svelte:head
+  >{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}</svelte:head
+>
 
 {#if !isLoading}
   <div class="mb-8">
